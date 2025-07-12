@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>BFFusion.DownstreamApi</RootNamespace>
+    <AssemblyName>BFFusion.DownstreamApi</AssemblyName>
+    <UserSecretsId>37572d0c-9cd8-4fa2-8b6c-9be666369869</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BFFusion.Shared\BFFusion.Shared.csproj" />
+  </ItemGroup>
+  
+</Project>

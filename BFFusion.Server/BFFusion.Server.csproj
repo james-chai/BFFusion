@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>BFFusion.Server</RootNamespace>
+    <AssemblyName>BFFusion.Server</AssemblyName>
+    <UserSecretsId>12ca8295-152c-494b-bead-dc549aeae1e8</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.IdentityModel.Logging" />
+    <PackageReference Include="Yarp.ReverseProxy" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BFFusion.Shared\BFFusion.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

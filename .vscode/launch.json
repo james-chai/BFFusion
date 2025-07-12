@@ -1,0 +1,56 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Launch BFFusion App",
+      "configurations": ["Launch Downstream API", "Launch BFF Server"],
+      "stopAll": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Launch Downstream API",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-downstreamapi",
+      "program": "${workspaceFolder}/BfFusion.DownstreamApi/bin/Debug/net8.0/BfFusion.DownstreamApi.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BfFusion.DownstreamApi",
+      "stopAtEntry": false,
+      // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+      "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+          "uriFormat": "%s/swagger"                // navigation url
+      },
+      "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+      }
+    },
+        {
+      "name": "Launch BFF Server",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-bff",
+      "program": "${workspaceFolder}/BFFusion.Server/bin/Debug/net8.0/BFFusion.Server.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BFFusion.Server",
+      "stopAtEntry": false,
+      // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+      "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+          "uriFormat": "%s/swagger"                // navigation url
+      },
+      "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+      }
+    }
+  ]
+}

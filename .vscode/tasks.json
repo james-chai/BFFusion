@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-downstreamapi",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BfFusion.DownstreamApi/BfFusion.DownstreamApi.csproj",
+        "--configuration", "Debug",
+        "--verbosity", "normal",
+        "/property:GenerateFullPaths=true"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-bff",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BFFusion.Server/BFFusion.Server.csproj",
+        "--configuration", "Debug",
+        "--verbosity", "normal",
+        "/property:GenerateFullPaths=true"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

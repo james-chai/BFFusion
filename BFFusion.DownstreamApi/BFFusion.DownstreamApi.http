@@ -1,0 +1,25 @@
+@BFFusion.DownstreamApi_HostAddress = https://localhost:7157
+@env = dev
+
+@tokenEndpoint = https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token
+@resourceEndpoint = {{BFFusion.DownstreamApi_HostAddress}}/api/weather-forecasts
+
+### Get Token
+# @name getToken
+POST {{tokenEndpoint}}
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{clientId}}&client_secret={{clientSecret}}&scope=api://{{clientId}}/.default&grant_type=client_credentials
+
+### Use Token
+@accessToken = {{getToken.response.body.access_token}}
+GET {{resourceEndpoint}}
+Authorization: Bearer {{accessToken}}
+
+###
+# Curl
+# curl -X POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=&client_secret=&scope=api://{{clientId}}/.default&grant_type=client_credentials"
+# curl -X GET "https://localhost:7157/api/weather-forecasts" -H "Authorization: Bearer {{access_token}}" -H "Accept: application/json"
+
+# https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-9.0
+

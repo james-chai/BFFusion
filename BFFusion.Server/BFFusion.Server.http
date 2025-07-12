@@ -1,0 +1,6 @@
+@BFFusion.Server_HostAddress = http://localhost:5001
+
+GET {{BFFusion.Server_HostAddress}}/direct-api/
+Accept: application/json
+
+###
